@@ -31,34 +31,31 @@ AJAX stands for Asynchronous JavaScript and XML. Ajax is not a single technology
 // Formulaire New Pony
 [Localhost:3000/ponies/new](http://localhost:3000/ponies/new)
 
-Name :
-
-Profession :
-
-Create Pony
-
-Back
+    * Name :
+    * Profession :
+    * Create Pony
+    * Back
 
 
-macbook:ponies admin$ rails routes
+### macbook:ponies admin$ rails routes
 
-   Prefix Verb   URI Pattern                Controller#Action
+     `Prefix Verb   URI Pattern                Controller#Action`
 
-   ponies GET    /ponies(.:format)          ponies#index
+     `ponies GET    /ponies(.:format)          ponies#index`
 
-          POST   /ponies(.:format)          ponies#create
+            `POST   /ponies(.:format)          ponies#create`
 
- new_pony GET    /ponies/new(.:format)      ponies#new
+   `new_pony GET    /ponies/new(.:format)      ponies#new`
 
-edit_pony GET    /ponies/:id/edit(.:format) ponies#edit
+  `edit_pony GET    /ponies/:id/edit(.:format) ponies#edit`
 
-     pony GET    /ponies/:id(.:format)      ponies#show
+       `pony GET    /ponies/:id(.:format)      ponies#show`
 
-          PATCH  /ponies/:id(.:format)      ponies#update
+            `PATCH  /ponies/:id(.:format)      ponies#update`
 
-          PUT    /ponies/:id(.:format)      ponies#update
+            `PUT    /ponies/:id(.:format)      ponies#update`
 
-          DELETE /ponies/:id(.:format)      ponies#destroy
+            `DELETE /ponies/:id(.:format)      ponies#destroy`
 
 # 
 # Creating an Ajax
@@ -67,37 +64,37 @@ edit_pony GET    /ponies/:id/edit(.:format) ponies#edit
 Update your destroy line with : `, :remote => true, :class => 'delete_pony'` (add)
 
 Create a file destroy.js.erb in views/ponies (with other erb files)
-`$('.delete_pony').bind('ajax:success', function() {`
+    `$('.delete_pony').bind('ajax:success', function() {`
 
-   `$(this).closest('tr').fadeOut();`
+       `$(this).closest('tr').fadeOut();`
 
-`});`
+    `});`
 
 
 Open your controller (app/controllers/ponies_controller.rb)=; add the following code in *destroy* method :
 
-`# DELETE /ponies/1`
+    `# DELETE /ponies/1`
 
-`# DELETE /ponies/1.json`
+    `# DELETE /ponies/1.json`
 
-`def destroy`
+    `def destroy`
 
-   `@pony = Pony.find(params[:id])`
+       `@pony = Pony.find(params[:id])`
 
-   `@pony.destroy`
-   
+       `@pony.destroy`
+       
 
-   `respond_to do |format|`
+       `respond_to do |format|`
 
-      `format.html { redirect_to ponies_url }`
+          `format.html { redirect_to ponies_url }`
 
-      `format.json { head :no_content }`
+          `format.json { head :no_content }`
 
-      `format.js   { render :layout => false }`
+          `format.js   { render :layout => false }`
 
-   `end`
-  
-`end`
+       `end`
+      
+    `end`
 
 ![ponies controller page](https://www.tutorialspoint.com/ruby-on-rails/images/ajax3.jpg)
 
