@@ -28,8 +28,8 @@ AJAX stands for Asynchronous JavaScript and XML. Ajax is not a single technology
 
 `rails s`
 
-http://localhost:3000/ponies/new
 // Formulaire New Pony
+[Localhost:3000/ponies/new](http://localhost:3000/ponies/new)
 Name :
 Profession :
 Create Pony
@@ -47,25 +47,25 @@ edit_pony GET    /ponies/:id/edit(.:format) ponies#edit
           DELETE /ponies/:id(.:format)      ponies#destroy
 # 
 # Creating an Ajax
-app/views/ponies/index.html.erb
+[index.html.erb](app/views/ponies/index.html.erb)
 Update your destroy line with : `, :remote => true, :class => 'delete_pony'` (add)
 `$('.delete_pony').bind('ajax:success', function() {
    $(this).closest('tr').fadeOut();
 });`
 
 Open your controller file (app/controllers/ponies_controller.rb)=; add the following code in destroy method :
-`# DELETE /ponies/1
-# DELETE /ponies/1.json
-def destroy
-   @pony = Pony.find(params[:id])
-   @pony.destroy
+`# DELETE /ponies/1`
+`# DELETE /ponies/1.json`
+`def destroy`
+   `@pony = Pony.find(params[:id])`
+   `@pony.destroy`
    
-   respond_to do |format|
-      format.html { redirect_to ponies_url }
-      format.json { head :no_content }
-      format.js   { render :layout => false }
-   end
-   
-end`
+   `respond_to do |format|`
+      `format.html { redirect_to ponies_url }`
+      `format.json { head :no_content }`
+      `format.js   { render :layout => false }`
+   `end`
+  
+`end`
 
 qmslfqmlqsjdmqlkjdf qmdkj
