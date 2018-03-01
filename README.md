@@ -64,6 +64,7 @@ AJAX stands for Asynchronous JavaScript and XML. Ajax is not a single technology
 Update your destroy line with : `, :remote => true, :class => 'delete_pony'` (add)
 
 Create a file destroy.js.erb in views/ponies (with other erb files)
+    
     `$('.delete_pony').bind('ajax:success', function() {`
 
        `$(this).closest('tr').fadeOut();`
