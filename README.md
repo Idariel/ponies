@@ -66,6 +66,7 @@ edit_pony GET    /ponies/:id/edit(.:format) ponies#edit
 
 Update your destroy line with : `, :remote => true, :class => 'delete_pony'` (add)
 
+Create a file destroy.js.erb in views/ponies (with other erb files)
 `$('.delete_pony').bind('ajax:success', function() {`
 
    `$(this).closest('tr').fadeOut();`
@@ -73,7 +74,7 @@ Update your destroy line with : `, :remote => true, :class => 'delete_pony'` (ad
 `});`
 
 
-Open your controller file (app/controllers/ponies_controller.rb)=; add the following code in destroy method :
+Open your controller (app/controllers/ponies_controller.rb)=; add the following code in *destroy* method :
 
 `# DELETE /ponies/1`
 
@@ -93,9 +94,25 @@ Open your controller file (app/controllers/ponies_controller.rb)=; add the follo
       `format.json { head :no_content }`
 
       `format.js   { render :layout => false }`
-      
+
    `end`
   
 `end`
 
-qmslfqmlqsjdmqlkjdf qmdkj
+![ponies controller page](https://www.tutorialspoint.com/ruby-on-rails/images/ajax3.jpg)
+
+Run New Pony page in localhost : [New Pony page](http://localhost:3000/ponies/new)
+
+![New Pony form](https://www.tutorialspoint.com/ruby-on-rails/images/ajax4.jpg)
+![New Pony registered](https://www.tutorialspoint.com/ruby-on-rails/images/ajax5.jpg)
+
+If you click on the back button, it will show all pony created information :
+![Pony list](https://www.tutorialspoint.com/ruby-on-rails/images/ajax6.jpg)
+
+Till now, we are working on scaffold, now click on destroy button, it will call a pop-up as shown below image, the pop-up works based on Ajax.
+![Destroy form](https://www.tutorialspoint.com/ruby-on-rails/images/ajax7.jpg)
+
+![Result of Destroy](https://www.tutorialspoint.com/ruby-on-rails/images/ajax8.jpg)
+
+That's all, Folks!
+
